@@ -6,8 +6,8 @@
 - setting up ts project : 
     1. create a .ts file 
     2. tsc --init
-    3. We can set the root folder in .json file
-    4. 
+    3. do the required settings in tsconfig.json file
+    4. type tsc in terminal, all the files will be transpiled
 - Datatypes : boolean, number, string, bigint
 - Type Assignment : 
     a. let firstName: string = "Dylan"; (Explicit - writing out the type)

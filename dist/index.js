@@ -19,3 +19,4 @@ ourTuple.push(9);
 ourTuple.forEach(x => {
     console.log(x);
 });
+//# sourceMappingURL=index.js.map

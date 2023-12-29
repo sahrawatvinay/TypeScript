@@ -18,6 +18,7 @@
             v = "string"; // no error as it can be "any" type
             Math.round(v); // no error as it can be "any" type
 - Arrays concept : 
+    js arrays are dynamic, can be of any type, so for typesafety in ts we specify type of array to prevent any discrepancy or error later in code
     const names: string[] = [];
     names.push("Dylan"); // no error
     // names.push(3); // Error: Argument of type 'number' is not assignable to parameter of type 'string'.

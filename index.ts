@@ -9,6 +9,7 @@ console.log(firstName, lastName, numberN);
 
 //arrays
 let arrNames: string[] = ["Ram", "Lak", "Shat"];
+arrNames[6] = "GG"; //undefined holes gets created if we add an element at a random location in array
 arrNames.push("Bharat");
 arrNames.forEach(e => {
     console.log(e);

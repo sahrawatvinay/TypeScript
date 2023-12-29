@@ -1,6 +1,13 @@
 # Important points about typescript
-- TypeScript is JavaScript with added syntax for types.
+- TypeScript is JavaScript with added syntax for types. Js with type checking.
 - TypeScript uses compile time type checking. Which means it checks if the specified types match before running the code, not while running the code.
+- Benefits : static typing, code completion, refactoring, shorthand notations.
+- transpilation : conversion of ts code to js using compiler.
+- setting up ts project : 
+    1. create a .ts file 
+    2. tsc --init
+    3. We can set the root folder in .json file
+    4. 
 - Datatypes : boolean, number, string, bigint
 - Type Assignment : 
     a. let firstName: string = "Dylan"; (Explicit - writing out the type)

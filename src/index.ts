@@ -73,7 +73,7 @@ let e: Employee = { id: 1, name: "Sam", retire: (date: Date) => { console.log(da
 let x: Employee = e;
 console.log(x);
 
-//union types
+//union types, when fn parameters can be of many types
 function kgToLbs(weight: number | string) {
     if (typeof weight === 'number')
         return weight * 1.5;
@@ -82,3 +82,54 @@ function kgToLbs(weight: number | string) {
 }
 kgToLbs(10);
 kgToLbs("10.5");
+
+// intersection types
+type Draggable = {
+    drag: () => void
+};
+type Resizeable = {
+    resize: () => void
+}
+type UIWidget = Draggable & Resizeable;
+let Box: UIWidget = {
+    drag: () => { }, // we need to implement both the methods in Draggable and Resizeable so as to use Box object
+    resize: () => { }
+};
+console.log(Box);
+
+// literals, to limit the values a variable can take (any type, no or string)
+type Quantity = 50 | 100;
+let quant: Quantity = 100; // can only be assigned 50 or 100
+type metric = "cm" | "inch";
+
+// nullable types
+function greet(name: string | null | undefined) { // allow name to contain null and undefined also
+    if (name) // if there is valid value in name, name will be printed, check if value is not null or undefined
+        console.log(name.toUpperCase());
+    else
+        console.log("Hola!"); //printed in case of null or undefined
+}
+greet("Vinay");
+greet(null);
+greet(undefined);
+
+type Customer = {
+    birthday: Date
+};
+
+function getCustomer(id: number): Customer | null | undefined {
+    return id === 0 ? null : { birthday: new Date() };
+}
+
+let customer = getCustomer(0);
+// console.log(customer) : error because, getCustomer can return null which can not access birthday property
+// if (customer != null && customer != undefined) // can be checked using this
+// better way : using optional property access operator
+console.log(customer?.birthday?.getFullYear());
+
+// we can also use this while accessing array elements
+// traditionally :
+// if(customers !== null && customers !== undefined)
+//      customers[0];
+// using : optional property access operator, before accesing elements
+// customers?.[0]        

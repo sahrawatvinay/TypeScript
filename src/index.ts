@@ -61,3 +61,24 @@ function calculateTax(income: number, year = 2022/*if not provided, 2022 will be
 let taxBefore2022: number = calculateTax(10_100); // year not provided, 2022 default will be used
 let taxAfter2023: number = calculateTax(50_000, 2032); // will override year's parameter default value 
 console.log(taxBefore2022, taxAfter2023);
+
+//type alias is used to define custom type
+type Employee = {
+    id: number,
+    name: string,
+    retire: (date: Date) => void //method, signature (params => return type)
+}
+
+let e: Employee = { id: 1, name: "Sam", retire: (date: Date) => { console.log(date); } };
+let x: Employee = e;
+console.log(x);
+
+//union types
+function kgToLbs(weight: number | string) {
+    if (typeof weight === 'number')
+        return weight * 1.5;
+    else
+        return parseInt(weight) * 1;
+}
+kgToLbs(10);
+kgToLbs("10.5");

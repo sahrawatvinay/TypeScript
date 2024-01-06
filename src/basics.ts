@@ -40,6 +40,8 @@ ourTuple.forEach(x => {
 // enums
 // special "class" that represents a group of constants (unchangeable variables)
 // using const while defining enums creates more OPTIMIZED js code
+// Enums come in two flavors string and numeric
+// By default, enums will initialize the first value to 0 and add 1 to each additional value
 /*
 - if you want to declare your own values, then we have to do it for all
 - for below code, sets value to 2 for medium and 3 for large automatically
@@ -48,6 +50,46 @@ const enum Size { Small = 1, Medium, Large };
 let mySize: Size = Size.Medium;
 console.log("my size is - ", mySize);
 
+const enum Character { first = "a", second = "b", third = "c", fourth = "d" };
+let anyChar: Character = Character.second;
+console.log("any character is - ", anyChar);
+
+// TypeScript Type Aliases and Interfaces
+type CarYear = number;
+type CarType = string;
+type CarModel = string;
+type Car = {
+    year: CarYear,
+    type: CarType,
+    model: CarModel
+};
+
+const carYear: CarYear = 2001;
+const carType: CarType = "Toyota";
+const carModel: CarModel = "Corolla";
+const car: Car = {
+    year: carYear,
+    type: carType,
+    model: carModel
+};
+
+// Interfaces are similar to type aliases, except they only apply to object types.
+// Interfaces can extend each other's definition.
+interface Rectangle {
+    height: number,
+    width: number
+}
+
+interface ColoredRectangle extends Rectangle {
+    color: string
+}
+
+const coloredRectangle: ColoredRectangle = {
+    height: 20,
+    width: 10,
+    color: "red"
+};
+console.log(coloredRectangle);
 
 // function in typescript
 // to make year = 2022 optional -> year ?
@@ -71,7 +113,9 @@ type Employee = {
 
 let e: Employee = { id: 1, name: "Sam", retire: (date: Date) => { console.log(date); } };
 let x: Employee = e;
+let y: any = e;
 console.log(x);
+console.log(y);
 
 //union types, when fn parameters can be of many types
 function kgToLbs(weight: number | string) {
@@ -113,6 +157,12 @@ greet("Vinay");
 greet(null);
 greet(undefined);
 
+// TypeScript Casting
+// can be done by using 'as' or <>
+let hello: unknown = 'hello';
+console.log((hello as string).length);
+console.log((<string>hello).length);
+
 type Customer = {
     birthday: Date
 };
@@ -133,3 +183,9 @@ console.log(customer?.birthday?.getFullYear());
 //      customers[0];
 // using : optional property access operator, before accesing elements
 // customers?.[0]        
+
+let customers: number[] | undefined | null = [];
+if (customers && customers.length > 0)
+    console.log("customers array");
+else
+    console.log("nothing in customers array");

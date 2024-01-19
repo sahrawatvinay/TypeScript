@@ -12,6 +12,7 @@ The this keyword in a class usually refers to the instance of the class.
 class Person {
     private name: string;
 
+    //we can only have 1 constructor, either default or parameterized
     public constructor(name: string) {
         this.name = name;
     }

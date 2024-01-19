@@ -3,6 +3,7 @@
 - TypeScript uses compile time type checking. Which means it checks if the specified types match before running the code, not while running the code.
 - Benefits : static typing, code completion, refactoring, shorthand notations.
 - transpilation : conversion of ts code to js using compiler.
+- We can only run js code on the browser
 - setting up ts project : 
     1. create a .ts file 
     2. tsc --init

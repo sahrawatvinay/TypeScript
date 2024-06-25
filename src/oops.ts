@@ -46,7 +46,7 @@ class Rect implements Shape {
     }
 }
 
-class Square extends Rect {
+class Square extends Rect { //base class calling rect super class 
     wid: number = 0;
     col: string = "";
     public constructor(w: number, c: string) {
